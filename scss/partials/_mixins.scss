@@ -1,0 +1,21 @@
+$desktop-width: 1240px;
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+$tablet-width: 600px;
+@mixin Tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+li {
+  @include tablet {
+    flex: 0 1 20%;
+  }
+  @include desktop {
+    flex: 0 1 50%;
+  }
+}
