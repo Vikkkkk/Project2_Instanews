@@ -22,13 +22,33 @@ $(document).ready(function() {
 
         //loop through data.results
         $.each(data.results, function(key, value) {
+          // $(html).append(
+          //   '<style> .newsblock{ bakckground-image:url(' +
+          //     value.multimedia[0].url +
+          //     '); } </style>'
+          // );
+
           $('.list').append(
-            '<li><img src=' +
-              value.multimedia[0].url +
-              '>' +
-              '<a href=' +
+            // '<li><img src=' +
+            //   value.multimedia[4].url +
+            //   '>' +
+            //   '<a href=' +
+            //   value.url +
+            //   '>' +
+            //   value.title +
+            //   '</a></li>'
+
+            // '<li class="newsblock"><a href=' +
+            //   value.url +
+            //   '>' +
+            //   value.title +
+            //   '</a></li>'
+
+            ' <li style="background-image: url(' +
+              value.multimedia[4].url +
+              ');background-size:cover"><a href="' +
               value.url +
-              '>' +
+              '">' +
               value.title +
               '</a></li>'
           );
