@@ -1,8 +1,10 @@
 $(document).ready(function() {
   $('#select-section').on('change', function() {
-    // event.preventDefault();
+    $('.list').empty();
+    const userinput = $('#select-section option:selected').val();
 
-    let url = 'https://api.nytimes.com/svc/topstories/v2/home.json';
+    let url =
+      'https://api.nytimes.com/svc/topstories/v2/' + userinput + '.json';
     url +=
       '?' +
       $.param({
@@ -20,7 +22,16 @@ $(document).ready(function() {
 
         //loop through data.results
         $.each(data.results, function(key, value) {
-          $('.list').append('<li>' + value.title + '</li>');
+          $('.list').append(
+            '<li><img src=' +
+              value.multimedia[0].url +
+              '>' +
+              '<a href=' +
+              value.url +
+              '>' +
+              value.title +
+              '</a></li>'
+          );
         });
       })
 

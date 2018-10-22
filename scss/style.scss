@@ -82,6 +82,19 @@ select {
   z-index: 99;
 }
 
+.list {
+  @include flex(row, null, null);
+  max-width: 100%;
+  flex-wrap: wrap;
+  li {
+    flex-basis: 25%;
+    width: 25%;
+    img {
+      height: 25vw;
+    }
+  }
+}
+
 footer {
   @include tablet {
     @include flex(null, center, null);
