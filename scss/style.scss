@@ -3,3 +3,98 @@
 @import "partials/mixins";
 @import "partials/base";
 @import "partials/layout";
+@import "partials/fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+h3,
+h4,
+select {
+  color: $text-color;
+}
+
+header {
+  text-align: center;
+  font-family: "open_sanslight";
+  height: 130vw;
+  @include tablet {
+    @include flex(row, flex-start, center);
+  }
+  @include desktop {
+    height: 50vw;
+  }
+}
+
+.logoContainer {
+  margin-top: 40%;
+  @include flex(row, center, center);
+  @include tablet {
+    width: 58%;
+    margin-top: 20%;
+    @include flex(column, null, null);
+  }
+  @include desktop {
+    width: 24%;
+    margin-top: 10%;
+    @include flex(column, null, null);
+  }
+  img {
+    width: 70vw;
+    @include tablet {
+      width: 40vw;
+      align-self: flex-end;
+    }
+    @include desktop {
+      width: 20vw;
+      align-self: flex-end;
+    }
+  }
+}
+
+.sections {
+  margin-top: 5%;
+  @include tablet {
+    margin-top: 15%;
+  }
+  @include desktop {
+    margin: 15% 0 0 5%;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+}
+
+select {
+  width: 6rem;
+  border: 1px;
+  color: black;
+  font-size: 1rem;
+  margin-top: 3%;
+  z-index: 99;
+}
+
+footer {
+  @include tablet {
+    @include flex(null, center, null);
+  }
+  @include desktop {
+    @include flex(null, left, null);
+  }
+  h4 {
+    font-family: "open_sanslight";
+    color: lightgrey;
+    text-align: center;
+    @include desktop {
+      margin-left: 5%;
+    }
+  }
+}
