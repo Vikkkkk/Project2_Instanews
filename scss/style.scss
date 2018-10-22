@@ -86,11 +86,25 @@ select {
   @include flex(row, null, null);
   max-width: 100%;
   flex-wrap: wrap;
+  text-align: center;
+  list-style: none;
+
   li {
-    flex-basis: 25%;
-    width: 25%;
+    flex-basis: 100%;
+
+    @include tablet {
+      flex-basis: 25%;
+    }
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+    }
     img {
-      height: 25vw;
+      height: 100vw;
+      @include tablet {
+        height: 25vw;
+      }
     }
   }
 }
