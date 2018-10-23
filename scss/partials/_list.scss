@@ -27,13 +27,20 @@
     a {
       text-decoration: none;
       color: $text-color;
-    }
-    img {
-      height: 100vw;
-      width: 100%;
-      @include tablet {
-        height: 25vw;
+      padding: 5px;
+      .newstext {
+        @include desktop {
+          display: none;
+        }
+        background-image: linear-gradient(
+          rgba(0, 0, 0, 0.5) 0px,
+          rgba(0, 0, 0, 0.5)
+        );
+      }
+      @include desktop {
+        &:hover .newstext {
+          display: block;
+        }
       }
     }
-  }
-}
+    

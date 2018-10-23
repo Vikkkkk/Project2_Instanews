@@ -34,11 +34,16 @@ header {
     }
   }
   .sections {
+    width: 60%;
+    margin-left: 20%;
     margin-top: 5%;
     @include tablet {
-      margin-top: 15%;
+      width: 20%;
+      margin: 15% 0 0 5%;
+      // margin-left: 5%;
     }
     @include desktop {
+      width: 15%;
       margin: 15% 0 0 5%;
     }
     h3 {

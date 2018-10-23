@@ -1,10 +1,17 @@
 $(document).ready(function() {
+  //Selectric
+  $(function() {
+    $('select').selectric();
+  });
+
   $('#select-section').on('change', function() {
-    $('.load').append('<img src="./Images/assets/ajax-loader.gif">');
+    $('.list').empty();
+    $('.load').append(
+      '<img class="loadingIcon" src="./Images/assets/ajax-loader.gif">'
+    );
 
     $('header').addClass('mininav');
 
-    $('.list').empty();
     const userinput = $('#select-section option:selected').val();
 
     let url =
@@ -45,7 +52,7 @@ $(document).ready(function() {
               ');background-size:cover;background-position: 50%;"><a  href="' +
               value.url +
               '"><p class="newstext">' +
-              value.title +
+              value.abstract +
               '</p></a></li>'
           );
         });
