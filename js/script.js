@@ -1,5 +1,9 @@
 $(document).ready(function() {
   $('#select-section').on('change', function() {
+    $('.load').append('<img src="./Images/assets/ajax-loader.gif">');
+
+    $('header').addClass('mininav');
+
     $('.list').empty();
     const userinput = $('#select-section option:selected').val();
 
@@ -16,41 +20,33 @@ $(document).ready(function() {
       url: url,
       dataType: 'JSON'
     })
-      .done(function(data) {
-        // console.log(data);
-        // console.log(data.results);
 
-        //loop through data.results
-        $.each(data.results, function(key, value) {
-          // $(html).append(
-          //   '<style> .newsblock{ bakckground-image:url(' +
-          //     value.multimedia[0].url +
-          //     '); } </style>'
-          // );
+      .always(function() {
+        $('.load').remove();
+      })
+
+      .done(function(data) {
+        const filteredResults = data.results
+          .filter(function(value) {
+            //     console.log(data.results.multimedia[4]);
+            return value.multimedia.length > 1;
+          })
+          .slice(0, 12);
+
+        // filtering through the data.results Array, and if any object within calle multimedia has more than 0 items in it we
+        // return that object. the slice is chained to it, saying we only want 12 results.
+
+        $.each(filteredResults, function(key, value) {
+          console.log(value.multimedia.length);
 
           $('.list').append(
-            // '<li><img src=' +
-            //   value.multimedia[4].url +
-            //   '>' +
-            //   '<a href=' +
-            //   value.url +
-            //   '>' +
-            //   value.title +
-            //   '</a></li>'
-
-            // '<li class="newsblock"><a href=' +
-            //   value.url +
-            //   '>' +
-            //   value.title +
-            //   '</a></li>'
-
             ' <li style="background-image: url(' +
               value.multimedia[4].url +
-              ');background-size:cover"><a href="' +
+              ');background-size:cover;background-position: 50%;"><a  href="' +
               value.url +
-              '">' +
+              '"><p class="newstext">' +
               value.title +
-              '</a></li>'
+              '</p></a></li>'
           );
         });
       })

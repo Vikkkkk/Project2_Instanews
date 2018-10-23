@@ -1,0 +1,16 @@
+footer {
+  @include tablet {
+    @include flex(null, center, null);
+  }
+  @include desktop {
+    @include flex(null, left, null);
+  }
+  h4 {
+    font-family: "open_sanslight";
+    color: lightgrey;
+    text-align: center;
+    @include desktop {
+      margin-left: 5%;
+    }
+  }
+}
