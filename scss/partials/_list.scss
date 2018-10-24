@@ -27,8 +27,10 @@
     a {
       text-decoration: none;
       color: $text-color;
-      padding: 5px;
+      transition:border-radius 0.3s ease 0.5s;
       .newstext {
+        padding: 5px;
+        width: 100%;
         @include desktop {
           display: none;
         }
@@ -40,7 +42,9 @@
       @include desktop {
         &:hover .newstext {
           display: block;
+          border-radius: 20px;
         }
       }
     }
-    
+  }
+}

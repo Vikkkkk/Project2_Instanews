@@ -8,7 +8,8 @@
     height: 18vw;
   }
   @include desktop {
-    height: 15vw;
+    height: 10vw;
+    width: 30%;
   }
   .logoContainer {
     height: 25vw;
@@ -23,7 +24,7 @@
         height: 16vw;
       }
       @include desktop {
-        height: 10vw;
+        height: 6vw;
       }
     }
   }

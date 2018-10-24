@@ -12,8 +12,15 @@ $(document).ready(function() {
 
     $('header').addClass('mininav');
 
-    const userinput = $('#select-section option:selected').val();
+    let userinput = $(this).val();
+    console.log(userinput);
 
+    sayHello(userinput);
+
+    if (userinput == 'sections') {
+      // alert('dont select home dumbass!');
+      // console.log('hihi');
+    }
     let url =
       'https://api.nytimes.com/svc/topstories/v2/' + userinput + '.json';
     url +=
@@ -44,12 +51,12 @@ $(document).ready(function() {
         // return that object. the slice is chained to it, saying we only want 12 results.
 
         $.each(filteredResults, function(key, value) {
-          console.log(value.multimedia.length);
+          // console.log();
 
           $('.list').append(
             ' <li style="background-image: url(' +
               value.multimedia[4].url +
-              ');background-size:cover;background-position: 50%;"><a  href="' +
+              ');background-size:cover;background-position: 50%;"><a target="_blank" href="' +
               value.url +
               '"><p class="newstext">' +
               value.abstract +
@@ -62,4 +69,8 @@ $(document).ready(function() {
         console.log('fail');
       });
   });
-});
+
+  function sayHello(cat) {
+    alert(cat);
+  }
+}); // end doc ready
