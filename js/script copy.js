@@ -15,10 +15,10 @@ $(document).ready(function() {
     let userinput = $(this).val();
     console.log(userinput);
 
-    // sayHello(userinput);
+    sayHello(userinput);
 
     if (userinput == 'sections') {
-      alert('Not sure what you want to read? try Sports');
+      // alert('dont select home dumbass!');
       // console.log('hihi');
     }
     let url =
@@ -70,9 +70,7 @@ $(document).ready(function() {
       });
   });
 
-  // function sayHello(userSelection) {
-  //   if (userinput == 'sections') {
-  //     alert('cannot make selection?');
-  //   }
-  // }
+  function sayHello(cat) {
+    alert(cat);
+  }
 }); // end doc ready
