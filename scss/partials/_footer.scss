@@ -12,5 +12,8 @@ footer {
     @include desktop {
       margin-left: 5%;
     }
+    .capital {
+      text-transform: uppercase;
+    }
   }
 }
