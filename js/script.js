@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     if (userinput == 'sections') {
       alert('Not sure what you want to read? try Sports');
-      // console.log('hihi');
+      
     }
     let url =
       'https://api.nytimes.com/svc/topstories/v2/' + userinput + '.json';
@@ -70,9 +70,5 @@ $(document).ready(function() {
       });
   });
 
-  // function sayHello(userSelection) {
-  //   if (userinput == 'sections') {
-  //     alert('cannot make selection?');
-  //   }
-  // }
+  
 }); // end doc ready
