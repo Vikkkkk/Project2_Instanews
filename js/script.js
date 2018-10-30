@@ -5,24 +5,26 @@ $(document).ready(function() {
   });
 
   $('#select-section').on('change', function() {
+    loader();
+    let userinput = $(this).val();
+    getStories(userinput);
+  });
+
+  function loader() {
     $('.list').empty();
     $('.load').append(
       '<img class="loadingIcon" src="./Images/assets/ajax-loader.gif">'
     );
 
     $('header').addClass('mininav');
+  }
 
-    let userinput = $(this).val();
-    console.log(userinput);
-
-    // sayHello(userinput);
-
-    if (userinput == 'sections') {
+  function getStories(userinput) {
+    if (userinput === 'sections') {
       alert('Not sure what you want to read? try Sports');
-      // console.log('hihi');
     }
-    let url =
-      'https://api.nytimes.com/svc/topstories/v2/' + userinput + '.json';
+
+    let url = `https://api.nytimes.com/svc/topstories/v2/${userinput}.json`;
     url +=
       '?' +
       $.param({
@@ -50,29 +52,20 @@ $(document).ready(function() {
         // filtering through the data.results Array, and if any object within calle multimedia has more than 0 items in it we
         // return that object. the slice is chained to it, saying we only want 12 results.
 
-        $.each(filteredResults, function(key, value) {
-          // console.log();
-
+        // $.each(filteredResults, function(key, value) {
+        for (let value of filteredResults) {
           $('.list').append(
-            ' <li style="background-image: url(' +
-              value.multimedia[4].url +
-              ');background-size:cover;background-position: 50%;"><a target="_blank" href="' +
-              value.url +
-              '"><p class="newstext">' +
-              value.abstract +
-              '</p></a></li>'
+            `<li style="background-image:url(${
+              value.multimedia[4].url
+            });background-size:cover;background-position:50%;"><a target="_blank" href="${
+              value.url
+            }"><p class="newstext">${value.abstract}</p></a></li>`
           );
-        });
+        }
       })
 
       .fail(function() {
         console.log('fail');
       });
-  });
-
-  // function sayHello(userSelection) {
-  //   if (userinput == 'sections') {
-  //     alert('cannot make selection?');
-  //   }
-  // }
-}); // end doc ready
+  }
+}); //end of doc ready
